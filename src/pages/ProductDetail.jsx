@@ -31,9 +31,9 @@ export default function ProductDetail() {
         </Link>
 
         {/* Main Product Layout area */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start mb-32">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start mb-32">
           {/* Left Large Image */}
-          <div className="lg:col-span-7 bg-surface_container_low rounded-[3rem] overflow-hidden aspect-[4/5] sticky top-32 shadow-ambient border-none">
+          <div className="lg:col-span-7 bg-surface_container_low rounded-3xl lg:rounded-[3rem] overflow-hidden aspect-[4/5] lg:sticky lg:top-32 shadow-ambient border-none">
             <img 
               src={product.mainImage} 
               alt={product.name} 
@@ -42,14 +42,14 @@ export default function ProductDetail() {
           </div>
 
           {/* Right Detailing Section */}
-          <div className="lg:col-span-5 space-y-12">
+          <div className="lg:col-span-5 space-y-10 lg:space-y-12">
             <div className="space-y-6">
               <span className="inline-block bg-[#f4dbd0] text-primary px-4 py-2 rounded-full text-xs font-bold tracking-widest uppercase">
                 The Signature Collection
               </span>
-              <h1 className="text-5xl lg:text-7xl font-bold leading-tight">{product.name}</h1>
-              <p className="text-xl font-medium text-on_surface_variant">${product.price}</p>
-              <p className="text-lg text-on_surface_variant leading-relaxed py-4 border-b border-outline_variant/30">
+              <h1 className="text-primary">{product.name}</h1>
+              <p className="text-2xl font-bold text-primary">${product.price}</p>
+              <p className="text-lg text-on_surface_variant leading-relaxed py-6 border-b border-outline_variant/30">
                 {product.description}
               </p>
             </div>
@@ -90,61 +90,63 @@ export default function ProductDetail() {
 
         {/* Details in Focus */}
         <div className="mb-32">
-          <h2 className="text-3xl font-bold mb-12 inline-block relative pb-4">
+          <h2 className="mb-12 inline-block relative pb-4">
             Details in Focus
             <span className="absolute bottom-0 left-0 w-full h-[3px] bg-primary rounded-full"></span>
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {product.images && product.images.length > 0 ? product.images.map((img, idx) => (
-              <div key={idx} className="bg-surface_container_low rounded-[2rem] overflow-hidden aspect-[4/5] md:aspect-square">
-                <img src={img} className="w-full h-full object-cover" alt={`${product.name} detail ${idx + 1}`} />
+              <div key={idx} className="bg-surface_container_low rounded-[2rem] overflow-hidden aspect-square md:aspect-[4/5] shadow-sm">
+                <img src={img} className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" alt={`${product.name} detail ${idx + 1}`} />
               </div>
             )) : (
-              <div className="col-span-3 text-center text-on_surface_variant py-12">No detail images available</div>
+              <div className="col-span-3 text-center text-on_surface_variant py-20 bg-surface_container_low rounded-[2rem]">No detail images available</div>
             )}
           </div>
         </div>
 
         {/* Dimensions & Materials */}
-        <div className="bg-surface_container_low py-24 px-12 rounded-[3rem] mb-32 border-none">
+        <div className="bg-surface_container_low py-16 md:py-24 px-6 md:px-12 lg:px-24 rounded-[3rem] mb-32 border-none shadow-sm">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-12">
-              <h2 className="text-4xl font-bold">Dimensions & Materials</h2>
+              <h2>Dimensions & Materials</h2>
               
               <div className="space-y-8">
                 <div className="flex gap-6">
-                  <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center flex-shrink-0 shadow-sm text-primary">✓</div>
+                  <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center flex-shrink-0 shadow-sm text-primary font-bold">01</div>
                   <div>
                     <h4 className="font-bold text-xl mb-2">Specifications</h4>
-                    <p className="text-on_surface_variant leading-relaxed">{product.specs.dimensions}<br/>{product.specs.seat}</p>
+                    <p className="text-on_surface_variant leading-relaxed font-medium">{product.specs.dimensions}<br/>{product.specs.seat}</p>
                   </div>
                 </div>
                 
                 <div className="flex gap-6">
-                  <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center flex-shrink-0 shadow-sm text-primary">✓</div>
+                  <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center flex-shrink-0 shadow-sm text-primary font-bold">02</div>
                   <div>
                     <h4 className="font-bold text-xl mb-2">Sustainable Sourcing</h4>
-                    <p className="text-on_surface_variant leading-relaxed">FSC Certified Solid European timber. Water-based matte lacquer finish. Recycled foundations.</p>
+                    <p className="text-on_surface_variant leading-relaxed font-medium">FSC Certified Solid European timber. Water-based matte lacquer finish. Recycled foundations.</p>
                   </div>
                 </div>
 
                 <div className="flex gap-6">
-                  <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center flex-shrink-0 shadow-sm text-primary">✓</div>
+                  <div className="w-12 h-12 rounded-full bg-white flex items-center justify-center flex-shrink-0 shadow-sm text-primary font-bold">03</div>
                   <div>
                     <h4 className="font-bold text-xl mb-2">Lifetime Promise</h4>
-                    <p className="text-on_surface_variant leading-relaxed">We offer a 10-year structural warranty on the frame and joinery, reflective of our commitment to longevity.</p>
+                    <p className="text-on_surface_variant leading-relaxed font-medium">We offer a 10-year structural warranty on the frame and joinery, reflective of our commitment to longevity.</p>
                   </div>
                 </div>
               </div>
             </div>
             
-            <div className="bg-[#12313B] rounded-[2rem] aspect-square flex items-center justify-center p-12">
-              <div className="w-full h-full border-2 border-dashed border-white/20 rounded-xl flex items-center justify-center relative">
-                <span className="text-white/50 text-sm tracking-widest uppercase absolute bottom-4">Technical Blueprint</span>
+            <div className="bg-primary text-white rounded-[2.5rem] aspect-square flex items-center justify-center p-8 md:p-12 shadow-2xl relative overflow-hidden group">
+              <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
+              <div className="w-full h-full border-2 border-dashed border-white/20 rounded-2xl flex items-center justify-center relative z-10">
+                <span className="text-white/50 text-xs tracking-[0.3em] uppercase absolute bottom-6 font-bold">Technical Blueprint</span>
                 {/* Simulated Blueprint Graphic */}
-                <div className="w-2/3 h-2/3 border border-white/40 rounded-3xl relative">
-                  <div className="absolute -left-6 top-1/2 -translate-y-1/2 text-white/40 text-xs rotate-270">H: {product.specs.dimensions.split('|')[2]?.split(':')[1] || '74cm'}</div>
-                  <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 text-white/40 text-xs">W: {product.specs.dimensions.split('|')[0]?.split(':')[1] || '84cm'}</div>
+                <div className="w-3/4 h-3/4 border border-white/40 rounded-[2rem] relative flex items-center justify-center transition-transform duration-700 group-hover:scale-105">
+                  <div className="absolute -left-8 top-1/2 -translate-y-1/2 text-white/40 text-[10px] rotate-270 font-bold tracking-widest uppercase">Height: 74cm</div>
+                  <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 text-white/40 text-[10px] font-bold tracking-widest uppercase">Width: 84cm</div>
+                  <div className="w-1/2 h-1/2 border border-white/20 rounded-full animate-pulse"></div>
                 </div>
               </div>
             </div>

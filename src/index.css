@@ -6,12 +6,17 @@
 
 @layer base {
   body {
-    @apply bg-background text-on_surface font-sans antialiased;
+    @apply bg-background text-on_surface font-sans antialiased overflow-x-hidden;
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply tracking-tight;
+    @apply tracking-tight text-balance;
   }
+
+  /* Fluid Typography - scaled for luxury feel */
+  h1 { @apply text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.1]; }
+  h2 { @apply text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.2]; }
+  h3 { @apply text-2xl md:text-3xl font-bold; }
 }
 
 @layer utilities {
@@ -21,5 +26,13 @@
   .no-scrollbar {
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
+  }
+
+  .safe-px {
+    @apply px-6 md:px-12 lg:px-24;
+  }
+  
+  .section-spacing {
+    @apply py-20 md:py-32;
   }
 }
